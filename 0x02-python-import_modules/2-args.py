@@ -15,7 +15,3 @@ if __name__ == "__main__":
 
     for i in range(1, length + 1):
         print("{:d}: {:d}".format(i, argv[i]))
-    """
-    for i in range(0, length):
-        print("{:d}: {:s}".format(i + 1, argv[i + 1]))
-    """
