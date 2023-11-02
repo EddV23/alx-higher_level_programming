@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 
-"""
-used for disassembly of given bytecode
-"""
-
 def magic_calculation(a, b):
     from magic_calculation_102 import add, sub
 
