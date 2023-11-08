@@ -1,44 +1,12 @@
-#include <stdio.h>
 #include <Python.h>
+#include <stdio.h>
 
-/**
- * print_python_bytes - prints basic info about Python bytes
- * @p: PyObject bytes
- */
-void print_python_bytes(PyObject *p)
-{
-	long int size, delim, i;
-	char *str;
-
-	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
-	}
-
-	size = ((PyVarObject *)(p))->ob_size;
-	str = ((PyBytesObject *)p)->ob_sval;
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", str);
-	if (size >= 10)
-		delim = 10;
-	else
-		delim = size + 1;
-	printf(" first %ld bytes:", delim);
-
-	for (i = 0; i < delim; i++)
-		if (str[i] >= 0)
-			printf(" %02x", str[i]);
-		else
-			printf(" %02x", 256 + str[i]);
-
-	printf("\n");
-}
+void print_python_bytes(PyObject *p);
 
 /**
  * print_python_list - prints some basic info about Python lists
  * @p: PyObject list
+ * Return: void
  */
 void print_python_list(PyObject *p)
 {
@@ -56,7 +24,46 @@ void print_python_list(PyObject *p)
 	{
 		obj = ((PyListObject *)p)->ob_item[i];
 		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
-		if (PyBytes_Check(obj))
+		/*if (PyBytes_Check(obj))*/
+		if (!strcmp((obj)->ob_type->tp_name, "bytes"))
 			print_python_bytes(obj);
 	}
+}
+
+/**
+ * print_python_bytes - prints basic info about Python bytes
+ * @p: PyObject bytes
+ * Return: void
+ */
+void print_python_bytes(PyObject *p)
+{
+	long int size, delim, i;
+	char *str;
+
+	printf("[.] bytes object info\n");
+	/*if (!PyBytes_Check(p))*/
+	if (strcmp(p->ob_type->tp_name, "bytes"))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
+
+	size = ((PyVarObject *)(p))->ob_size;
+	str = ((PyBytesObject *)p)->ob_sval;
+	printf("  size: %ld\n", size);
+	printf("  trying string: %s\n", str);
+	if (size < 10)
+		delim = size + 1;
+	else
+		delim = 10;
+	printf(" first %ld bytes:", delim);
+
+	for (i = 0; i < delim; i++)
+	{
+		if (str[i] < 0)
+			printf(" %02x", 256 + str[i]);
+		else
+			printf(" %02x", str[i]);
+	}
+	printf("\n");
 }
