@@ -48,17 +48,17 @@ void print_python_bytes(PyObject *p)
 	str = ((PyBytesObject *)p)->ob_sval;
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
-	if (size < 10)
-		delim = size + 1;
-	else
+	if (size >= 10)
 		delim = 10;
+	else
+		delim = size + 1;
 	printf(" first %ld bytes:", delim);
 
 	for (i = 0; i < delim; i++)
-		if (str[i] < 0)
-			printf(" %02x", 256 + str[i]);
-		else
+		if (str[i] >= 0)
 			printf(" %02x", str[i]);
+		else
+			printf(" %02x", 256 + str[i]);
 
 	printf("\n");
 }
