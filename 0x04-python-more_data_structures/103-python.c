@@ -56,9 +56,9 @@ void print_python_bytes(PyObject *p)
 
 	for (i = 0; i < delim; i++)
 		if (str[i] < 0)
-			printf(" %02hhx", 256 + str[i]);
+			printf(" %02x", 256 + str[i]);
 		else
-			printf(" %02hhx", str[i]);
+			printf(" %02x", str[i]);
 
 	printf("\n");
 }
