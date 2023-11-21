@@ -19,8 +19,11 @@ class Square:
     @size.setter
     def size(self, value):
         """Setter method to set the size attribute"""
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
         self.__size = value
-        self.__validate_size()
 
     @property
     def position(self):
