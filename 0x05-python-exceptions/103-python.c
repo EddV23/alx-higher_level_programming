@@ -99,5 +99,5 @@ void print_python_float(PyObject *p)
 	}
 
 	str = PyOS_double_to_string(obj, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
-	printf(" value: %s\n", str);
+	printf("  value: %s\n", str);
 }
