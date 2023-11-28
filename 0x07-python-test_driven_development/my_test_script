@@ -1,0 +1,9 @@
+for file in *main.py; do echo "File: $file"; ./$file; echo "---------------"; done
+
+for file in */tests/*
+do
+echo "test: $file"
+#if $file ne tests/101-lazy_matrix_mul.txt
+python3 -m doctest ./tests/*
+echo "-----------"
+done

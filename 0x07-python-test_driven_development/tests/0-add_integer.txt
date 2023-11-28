@@ -1,0 +1,55 @@
+#Test cases for add_integer function
+
+#This below imports the ``add_integer`` function from the ``0-add_integer``
+module which allows us to perform the addition of two integers
+>>> add_integer = __import__('0-add_integer').add_integer
+
+#Now we can perform addition by calling the ``add_integer`` function as
+``add_integer(...)`` where ``...`` represents the two integer arguments
+whose sum will be returned
+
+#Here we add two positive integers
+>>> add_integer(1, 2)
+3
+
+#Here we add a positive integer and a negative integer
+>>> add_integer(100, -2)
+98
+
+#Here only one integer argument is supplied which works because the the
+second parameter ``b`` of the function ``add_integer`` has already been
+assigned with a value `98`, which would only be replaced if two arguments
+are supplied to the function call
+>>> add_integer(2)
+100
+
+#Here we add a floating point number and an integer. The float will be
+casted to an integer, hence it will accurately return a value of the sum
+>>> add_integer(100.3, -2)
+98
+
+#Here we add an integer and a string which produces a TypeError since both
+arguments must be integers
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+#Here a TypeError is produced since the argument must be an integer not a list
+>>> add_integer([6, 7, 9])
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+#Here a TypeError is produced since `None` is a boolean is not an integer
+>>> add_integer(None)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+#Here a TypeError is produced because at least a positional argument must be
+provided for the parameter `a`
+>>> add_integer()
+Traceback (most recent call last):
+  ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
