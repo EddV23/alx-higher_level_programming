@@ -1,11 +1,55 @@
-#Test cases for matrix_mul function.
+# Test cases for matrix_mul function.
 
 >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
 
-# Test cases for lazy_matrix_mul function
-
+# Test case 1:
+# Multiplying two 2x2 matrices with integer elements.
+# Expected Result: A new matrix with the product of the matrices.
 >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
 [[7, 10], [15, 22]]
 
+# Test case 2:
+# Multiplying a 1x2 matrix with a 2x2 matrix with integer elements.
+# Expected Result: A new matrix with the product of the matrices.
 >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
 [[13, 16]]
+
+# Additional Test case 3:
+# Multiplying two matrices with floating-point elements.
+# Expected Result: A new matrix with the product of the matrices.
+>>> matrix_mul([[1.5, 2.5], [3.5, 4.5]], [[2, 1], [1, 2]])
+[[5.5, 6.5], [11.5, 12.5]]
+
+# Additional Test case 4:
+# Multiplying a 3x3 matrix with a 3x1 matrix.
+# Expected Result: A new matrix with the product of the matrices.
+>>> matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1], [2], [3]])
+[[14], [32], [50]]
+
+# Additional Test case 5:
+# Multiplying two matrices with negative integer elements.
+# Expected Result: A new matrix with the product of the matrices.
+>>> matrix_mul([[-1, -2], [-3, -4]], [[-1, -2], [-3, -4]])
+[[7, 10], [15, 22]]
+
+# Additional Test case 6:
+# Multiplying a 2x3 matrix with a 3x2 matrix.
+# Expected Result: A new matrix with the product of the matrices.
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4], [5, 6]])
+[[22, 28], [49, 64]]
+
+# Error Test case 7:
+# Multiplying matrices with incompatible sizes.
+# Expected Result: ValueError("Matrices cannot be multiplied: incompatible sizes").
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+
+# Error Test case 8:
+# Multiplying matrices with an empty matrix.
+# Expected Result: ValueError("Matrices cannot be multiplied: one or more matrices are empty").
+>>> matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty or m_b can't be empty
