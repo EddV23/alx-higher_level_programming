@@ -65,7 +65,7 @@ def solve_nqueens(n):
 if __name__ == "__main__":
     """checks the number of arguments"""
     if len(sys.argv) != 2:
-        print("Usage: {} N".format(sys.argv[0]))
+        print("Usage: nqueens N")
         sys.exit(1)
 
     try:
