@@ -1,9 +1,16 @@
-#Test cases for lazy_matrix_mul function.
+# Test cases for lazy_matrix_mul function.
 
 >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>> import numpy as np
 
->>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
-[[7, 10], [15, 22]]
+# Test case for multiplying two 2x2 matrices with integer elements.
+# Expected Result: A NumPy array with the product of the matrices.
+>>> result = lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+>>> np.array_equal(result, np.array([[7, 10], [15, 22]]))
+True
 
->>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
-[[13, 16]]
+# Test case for multiplying 1x2 matrix with a 2x2 matrix with integer elements.
+# Expected Result: A NumPy array with the product of the matrices.
+>>> result = lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+>>> np.array_equal(result, np.array([[13, 16]]))
+True
