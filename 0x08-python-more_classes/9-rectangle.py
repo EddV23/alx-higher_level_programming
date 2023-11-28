@@ -12,9 +12,10 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """initializes an instance of the Rectangle class"""
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        # Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -54,22 +55,6 @@ class Rectangle:
             return 0
         return (self.__width + self.__height) * 2
 
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        """returns the biggest rectangle based on the area"""
-        if type(rect_1) != Rectangle:
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if type(rect_2) != Rectangle:
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
-            return rect_1
-        return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """a square class method that returns a new rectangle instance"""
-        return cls(size, size)
-
     def __str__(self):
         """returns a string representation of the rectangle"""
         result = ""
@@ -86,5 +71,22 @@ class Rectangle:
 
     def __del__(self):
         """detects the number of instances of the rectangle deleted"""
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        # Rectangle.number_of_instances -= 1
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """returns the biggest rectangle based on the area"""
+        if type(rect_1) != Rectangle:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if type(rect_2) != Rectangle:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """a square class method that returns a new rectangle instance"""
+        return cls(size, size)
