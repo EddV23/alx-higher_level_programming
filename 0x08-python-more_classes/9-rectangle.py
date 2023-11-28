@@ -12,7 +12,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """initializes an instance of the Rectangle class"""
-        self.__width = width
+        self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
@@ -59,8 +59,8 @@ class Rectangle:
         result = ""
         if self.__width == 0 or self.__height == 0:
             return result
-        result += self.__height * (str(self.print_symbol) * self.__width
-                                   + "\n")
+        result += ((str(self.print_symbol) * self.__width + "\n") *
+                   self.__height)
         return result.rstrip()
 
     def __repr__(self):
