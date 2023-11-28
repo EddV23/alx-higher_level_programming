@@ -10,7 +10,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """initializes an instance of the Rectangle class"""
-        self.__width = width
+        self.width = width
         self.height = height
 
     @property
