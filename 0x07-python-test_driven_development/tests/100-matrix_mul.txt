@@ -38,7 +38,16 @@
 >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4], [5, 6]])
 [[22, 28], [49, 64]]
 
+
 # Error Test case 7:
+# Multiplying matrices with incompatible sizes.
+# Expected Result: ValueError("Matrices cannot be multiplied: incompatible sizes").
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+
+# Error Test case 8:
 # Multiplying matrices with incompatible sizes.
 # Expected Result: ValueError("Matrices cannot be multiplied: incompatible sizes").
 >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
@@ -46,10 +55,88 @@ Traceback (most recent call last):
     ...
 ValueError: m_a and m_b can't be multiplied
 
-# Error Test case 8:
+
+# Error Test case 9:
+# Multiplying matrices with incompatible sizes.
+# Expected Result: TypeError("Matrices cannot be multiplied: incompatible sizes").
+>>> matrix_mul([[1, 2], [3, 4, 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must be of the same size
+
+# Error Test case 10:
+# Multiplying matrices with incompatible sizes.
+# Expected Result: TypeError("Matrices cannot be multiplied: incompatible sizes").
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5]])
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_b must be of the same size
+
+
+# Error Test case 11:
 # Multiplying matrices with an empty matrix.
 # Expected Result: ValueError("Matrices cannot be multiplied: one or more matrices are empty").
 >>> matrix_mul([], [[1, 2], [3, 4]])
 Traceback (most recent call last):
     ...
-ValueError: m_a can't be empty or m_b can't be empty
+ValueError: m_a can't be empty
+
+# Error Test case 12:
+# Multiplying matrices with an empty matrix.
+# Expected Result: ValueError("Matrices cannot be multiplied: one or more matrices are empty").
+>>> matrix_mul([[1, 2], [3, 4]], [])
+Traceback (most recent call last):
+    ...
+ValueError: m_b can't be empty
+
+
+# Error Test case 13:
+# Multiplying matrices with not containing integers or floats.
+# Expected Result: TypeError("Matrices should contain only integers or floats").
+>>> matrix_mul([[1, "string"], [3, 4]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a should contain only integers or floats
+
+# Error Test case 14:
+# Multiplying matrices with not containing integers or floats.
+# Expected Result: TypeError("Matrices should contain only integers or floats\
+").
+>>> matrix_mul([[1, 2], [3, 4]], [[1, "string"], [3, 4]])
+Traceback (most recent call last):
+    ...
+TypeError: m_b should contain only integers or floats
+
+
+# Error Test case 15:
+# Multiplying matrices not containing list.
+# Expected Result: TypeError("Matrices must contain lists").
+>>> matrix_mul("non-list", [3, 4])
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list
+
+# Error Test case 16:
+# Multiplying matrices not containing list.
+# Expected Result: TypeError("Matrices must contain lists").
+>>> matrix_mul([3, 4], "non-list")
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list
+
+
+# Error Test case 17:
+# Multiplying matrices not containing list.
+# Expected Result: TypeError("Matrices must contain lists").
+>>> matrix_mul([3, 4], [[5, 6]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list of lists
+
+# Error Test case 18:
+# Multiplying matrices not containing list.
+# Expected Result: TypeError("Matrices must contain lists").
+>>> matrix_mul([[3, 4]], [5, 6])
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list of lists

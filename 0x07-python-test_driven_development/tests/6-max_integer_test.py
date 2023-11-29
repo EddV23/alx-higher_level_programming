@@ -12,6 +12,9 @@ class TestMaxInteger(unittest.TestCase):
         # Test with a list of mixed positive and negative integers
         self.assertEqual(max_integer([1, 3, 4, 2]), 4)
 
+        # Test a list with a max value at the beginning
+        self.assertEqual(max_integer([4, 2, -1, -3]), 4)
+
         # Test with an empty list
         self.assertIsNone(max_integer([]))
 

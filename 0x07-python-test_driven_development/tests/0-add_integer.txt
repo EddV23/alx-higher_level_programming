@@ -53,3 +53,15 @@ provided for the parameter `a`
 Traceback (most recent call last):
   ...
 TypeError: add_integer() missing 1 required positional argument: 'a'
+
+#OverflowError is produced if infinity is provided as argument
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+#ValueError is produced is nan is provided as argument
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+  ...
+ValueError: cannot convert float NaN to integer
