@@ -9,7 +9,6 @@
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("", 12)
 >>> bg.integer_validator(123, 456)
->>> bg.integer_validator("temperature", True)
 >>> bg.area()
 Traceback (most recent call last):
   ...
@@ -22,6 +21,10 @@ Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
+>>> bg.integer_validator("temperature", True)
+Traceback (most recent call last):
+  ...
+TypeError: temperature must be an integer
 
 >>> bg.integer_validator("name")
 Traceback (most recent call last):
