@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Module that defines a function and checks for inheritance
+Module that defines a function and checks if an object
+is kind of a class that inherited from another class
 """
 
 
