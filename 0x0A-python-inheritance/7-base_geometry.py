@@ -15,7 +15,7 @@ class BaseGeometry:
         """Validates that value is an integer greater than 0."""
         if not type(value) is int:
             raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
+        elif value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
         """
         if not isinstance(value, int):
