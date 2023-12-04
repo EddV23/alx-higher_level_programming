@@ -7,12 +7,7 @@ class Rectangle(BaseGeometry):
     """Rectangle class inheriting from BaseGeometry."""
 
     def __init__(self, width, height):
-        """Instantiates with width and height, validates them.
-
-        Args:
-            width (int): width of the Rectangle
-            height (int): height of the Rectangle
-        """
+        """Instantiates with width and height, validates them."""
         self.integer_validator("width", width)
         self.__width = width
         self.integer_validator("height", height)
