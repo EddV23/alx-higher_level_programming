@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-Module that defines a class Rectangle that inherits
-from BaseGeometry (7-base_geometry.py)
-"""
+"""Defines a class that inherits from BaseGeometry (7-base_geometry.py)"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
