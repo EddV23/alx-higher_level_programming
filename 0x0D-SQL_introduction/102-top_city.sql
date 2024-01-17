@@ -1,6 +1,5 @@
--- Display the top 3 cities' temperature during July and August ordered by tempe
--- rature (descending)
-SELECT city, AVG(`value`) AS avg_temp
+-- Display the top 3 cities with the highest temperaturse during July and August
+SELECT city, AVG(value) AS avg_temp
 FROM temperatures
 WHERE month IN ('July', 'August')
 GROUP BY city
