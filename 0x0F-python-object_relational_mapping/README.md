@@ -72,6 +72,7 @@ $ python3
 ```
 
 ### Install SQLAlchemy module version 1.4.x
+```bash
 $ sudo pip3 install SQLAlchemy
 ...
 $ python3
@@ -87,11 +88,6 @@ moved in a future release.")
 ```
 You can ignore it.
 
-
-
-## Tests :heavy_check_mark:
-
-* [tests](./tests): SQL and Python scripts used for test tables for the files.
 
 ## Tasks :page_with_curl:
 
