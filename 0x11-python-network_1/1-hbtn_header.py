@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" fetches the value of the X-Request-ID variable found in the header"""
+"""
+fetches the value of the X-Request-ID variable found in the header
+"""
 
 if __name__ == '__main__':
     import urllib.request
